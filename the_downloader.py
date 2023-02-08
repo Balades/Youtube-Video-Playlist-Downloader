@@ -1,8 +1,8 @@
 import pytube 
-# design = "########################"
-# print(f"{design * 5}\n\n")
-# print(("Download Your Youtube Videos And Playlist\n\n").center(20,' '))
-# print(f"{design * 5}\n\n")
+design = "########################"
+print(f"{design * 2}\n\n")
+print(("Download Your Youtube Videos And Playlist\n\n"))
+print(f"{design * 2}\n\n")
 qual = ""
 
 def menu():
@@ -12,23 +12,27 @@ def menu():
 Download:
     1.Video
     2.Playlist
-    Input 1 or 2: """))
+    3.Exit
+    Input 1, 2 or 3: """))
         except:
             print("Wrong input, try again.")
             continue
         else:
             if option == 1 :
                 video_downloader()
-                break
+                print("Taking you back to the menu...")
             elif option == 2:
                 playlist_downloader()
+                print("Taking you back to the menu...")
+            elif option == 3:  
+                print("Bye!")
                 break
             else:
-                print("Input 1 or 2, please: ")
+                print("Input 1 ,2 or 3, please: ")
                 continue
 def quality():
     try: 
-        user_quality = input("Input quality (720p, 480p, 360p, 240p, 144p): ")
+        user_quality = input("Input quality (720p, 480p, 360p, 240p, 144p) or press exit to Exit: ")
     except:
         print("Wrong input, try again.")
         quality()
@@ -43,7 +47,11 @@ def quality():
             qual = "240p"
         elif user_quality == "144p" or user_quality == "144":
             qual = "144p"
+        elif user_quality == "exit":
+            print("Bye!")
+            exit()
         else:
+            qual = ""
             print("Wrong input, try again.")
             quality()
     return qual
